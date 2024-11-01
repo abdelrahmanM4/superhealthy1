@@ -1,0 +1,60 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f4f9; /* الخلفية الفاتحة */
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #121212; /* الخلفية في وضع الظلام */
+  color: #ffffff; /* النص في وضع الظلام */
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #28a745; /* تغيير اللون عند التمرير */
+}
+
+.btn-custom {
+  background-color: #28a745; /* لون الزر */
+  color: white;
+  border: none;
+  border-radius: 50px; /* زوايا دائرية */
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #218838; /* لون أغمق عند التمرير */
+  transform: scale(1.05); /* تكبير الزر عند التمرير */
+}
+
+.btn-support {
+  background-color: #007bff; /* لون زر الدعم الفني */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-support:hover {
+  background-color: #0056b3; /* لون أغمق عند التمرير */
+  transform: scale(1.05); /* تكبير الزر عند التمرير */
+}
+
+footer {
+  background-color: #222;
+}
+
+.support-section {
+  margin: 20px 0;
+}
