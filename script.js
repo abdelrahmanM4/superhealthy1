@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.add("dark-mode");
   }
 
+  // استعادة اللغة من localStorage
+  const savedLanguage = localStorage.getItem("language") || "en";
+  updateLanguage(savedLanguage);
+
   document.querySelectorAll(".btn").forEach((button) => {
     button.addEventListener("click", function () {
       this.classList.add("active");
@@ -22,6 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// فتح قائمة الإعدادات مع تأثير الأنيميشن
+function toggleDropdown() {
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+  dropdownMenu.classList.toggle("show");
+}
 
 function openWhatsApp() {
   window.open("https://wa.me/01007589956", "_blank");
@@ -37,29 +47,31 @@ function toggleDarkMode() {
   localStorage.setItem("dark-mode", isDarkMode);
 }
 
-function rateProducts() {
-  let rating = prompt("Please rate our products from 1 to 5:");
-  if (rating >= 1 && rating <= 5) {
-    alert("Thank you for rating us " + rating + " stars!");
-  } else {
-    alert("Invalid rating. Please enter a number between 1 and 5.");
-  }
-}
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-  localStorage.setItem(
-    "dark-mode",
-    document.body.classList.contains("dark-mode")
-  );
+function changeLanguage(lang) {
+  localStorage.setItem("language", lang);
+  updateLanguage(lang);
 }
 
-// استعادة وضع التفضيلات من localStorage
-window.onload = function () {
-  if (localStorage.getItem("dark-mode") === "true") {
-    document.body.classList.add("dark-mode");
+function updateLanguage(lang) {
+  if (lang === "en") {
+    document.getElementById("main-title").textContent = "Super Healthy";
+    document.getElementById("main-description").textContent =
+      "Your Guide to Sustainable Agriculture";
+    document.getElementById("welcome-title").textContent =
+      "Welcome to Super Healthy!";
+    document.getElementById("welcome-description").textContent =
+      "Discover sustainable solutions for agriculture with our range of high-quality organic products.";
+  } else if (lang === "ar") {
+    document.getElementById("main-title").textContent = "صحة ممتازة";
+    document.getElementById("main-description").textContent =
+      "دليلك للزراعة المستدامة";
+    document.getElementById("welcome-title").textContent =
+      "مرحبًا بكم في صحة ممتازة!";
+    document.getElementById("welcome-description").textContent =
+      "اكتشف حلول مستدامة للزراعة مع مجموعتنا من المنتجات العضوية عالية الجودة.";
   }
-};
-function toggleSettings() {
-  // يمكنك هنا إضافة أي وظائف تحتاجها لزر الإعدادات
-  alert("Settings button clicked!"); // مثال بسيط
+}
+
+function toggleNotifications() {
+  alert("Notifications toggled!");
 }
